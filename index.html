@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login GranCole</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <!-- Contenedor izquierdo vacío -->
+  <div class="container1"></div>
+
+  <!-- Contenedor derecho con logo y login -->
+  <div class="container2">
+    <!-- Logo y bienvenida -->
+    <div class="logo">
+      <img src="img/logo-cole.png" alt="Logo GranCole">
+      <h2>Bienvenido a GranCole</h2>
+      <p>Inicia sesión para continuar</p>
+    </div>
+
+    <!-- Caja de login -->
+    <div class="login-box">
+      <h3>Iniciar Sesión</h3>
+      <p>Ingresa tus credenciales para acceder al sistema</p>
+
+      <form>
+        <!-- Usuario -->
+        <div class="input-group">
+          <label for="usuario">Usuario</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-user"></i></span>
+            <input type="text" id="usuario" placeholder="0000000">
+          </div>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="input-group">
+          <label for="password">Contraseña</label>
+          <div class="input-wrapper">
+            <span class="icon"><i class="fa-solid fa-lock"></i></span>
+            <input type="password" id="password" placeholder="••••••••">
+            <span class="icon"><i class="fa-solid fa-eye"></i></span>
+          </div>
+        </div>
+
+        <!-- Olvidaste contraseña -->
+        <div class="forgot">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <!-- Botón login -->
+        <button type="submit" class="btn-login">
+          Iniciar Sesión <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <!-- Registro -->
+      <div class="register">
+        ¿No tienes cuenta? <a href="#">Contacta al administrador</a>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        © 2025 GranCole Pro. Todos los derechos reservados.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
