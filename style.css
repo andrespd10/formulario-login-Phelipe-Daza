@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #dbeaff;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer {
+    width: 100%;          /* ocupa todo el ancho */
+    padding: 10px 0;      /* un poco de espacio arriba y abajo */
+    background-color: #caced6;
+}
+
+
+
+.foot {
+    text-align: center;   /* centra el texto */
+    font-size: 0.85rem;
+    color: #5d5f67;       /* grisito elegante */
+}
+.fondo {
+    width: 100%;
+    height: 100%;
+    background-image: url(./assets/img/imagen-estudiantes.png);
+    background-size: cover;      /* hace que ocupe todo el div */
+    background-position: center; /* centra la imagen */
+    background-repeat: no-repeat;/* evita que se repita */
+}
+
+
+/* División 50/50 en pantallas grandes */
+.container1, .container2 {
+    width: 50%;
+    height: 100vh;
+}
+
+.container1 {
+    background: #f3f4f6;
+}
+
+.container2 {
+    background: #dbeaff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Logo */
+.logo {
+    text-align: center;
+    margin-bottom: 0;
+}
+.logo img {
+    width: 55px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+.logo p {
+    color: #7a8ca3;
+    margin-top: 4px;
+}
+h2 {
+    margin: 0;
+    color: #2d3a4a;
+}
+
+/* Caja de login */
+.login-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 15px;
+    max-width: 370px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.login-box h3, .login-box p, .input-group label {
+    margin-bottom: 10px;
+    color: #2d3a4a;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 15px;
+    width: 100%; /* que ocupe todo el ancho disponible */
+}
+.input-wrapper {
+    position: relative;
+}
+.input-wrapper input {
+    width: 75%;
+    padding: 10px 40px;
+    border: 1px solid #dbe5f1;
+    border-radius: 8px;
+    background: #f7faff;
+    outline: none;
+    transition: border 0.2s;
+}
+.input-wrapper input:focus {
+    border-color: #3b6efb;
+}
+.input-wrapper .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b1b9c7;
+    padding-left: 10px;
+}
+.input-wrapper .icon:last-child {
+    right: 10px;
+    left: auto;
+}
+
+/* Links */
+.forgot {
+    text-align: right;
+    margin-bottom: 16px;
+}
+.forgot a {
+    color: #3b6efb;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+/* Botón */
+.btn-login {
+    width: 100%;
+    background: #3b6efb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+}
+
+/* Extra */
+.register {
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+.register a {
+    color: #3b6efb;
+    text-decoration: none;
+    font-weight: 500;
+}
+.footer {
+    text-align: center;
+    color: #b1b9c7;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    body {
+        flex-direction: column; /* pasa a vertical */
+    }
+    .container1, .container2 {
+        width: 100%;
+        height: auto;
+        min-height: 50vh;
+    }
+
+    .container1 {
+        height: 250px; /* alto fijo tipo banner */
+    }
+    .fondo {
+        height: 100%;
+        width: 100%;
+    }
+
+    .container2 {
+        padding: 20px;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .login-box {
+        padding: 16px 12px;
+        max-width: 95vw;
+    }
+    .logo img {
+        width: 60px;
+    }
+}
+
+/* --- Overlay lila + partículas sobre la imagen de .fondo --- */
+.fondo{
+  position: relative;          /* crea el contexto para los pseudo-elementos */
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/img/imagen-estudiantes.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;            /* que nada se salga del div */
+}
+
+/* Bolitas blancas (van arriba del overlay) */
+.fondo::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(#fff 2.9px, transparent 2.9px);
+  background-size: 130px 190px;     /* más separación = menos bolitas */
+  opacity: .45;
+  animation: gcParticulas 55s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Overlay lila */
+.fondo::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(111, 66, 193, .55); /* lila translúcido */
+  z-index: 1;                           /* debajo de las bolitas */
+  pointer-events: none;
+}
+
+/* Animación de las bolitas */
+@keyframes gcParticulas{
+  from { transform: translate(0,0); }
+  to   { transform: translate(-220px,-220px); }
+}
+
+/* Ajustes responsive ya existentes: solo aseguramos que .fondo siga llenando */
+@media (max-width: 900px){
+  .container1{ height: 250px; }
+  .fondo{ width:100%; height:100%; }
+}
+
+
+
+/* Texto dentro del fondo (lado izquierdo) */
+.overlay-text {
+    position: relative;
+    z-index: 3; /* por encima del overlay y partículas */
+    color: #ffffff;
+    padding: 80px 60px;
+    max-width: 600px;
+}
+
+/* Título principal */
+.overlay-text h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Subtítulo */
+.overlay-text h4 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #d9d6f5;
+}
+
+/* Párrafo introductorio */
+.overlay-text p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #f5f3ff;
+}
+
+/* Lista de características */
+.overlay-text ul {
+    list-style: none;
+    margin-bottom: 35px;
+    padding-left: 0;
+}
+.overlay-text ul li {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Estadísticas */
+.stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+.stats div {
+    text-align: left;
+    font-size: 0.95rem;
+    color: #e5e7f0;
+}
+.stats strong {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+
+/* Ajuste responsive: centrar y reducir texto */
+@media (max-width: 900px) {
+    .overlay-text {
+        padding: 40px 20px;
+        max-width: 100%;
+        text-align: center;
+    }
+    .stats {
+        justify-content: center;
+    }
+    .stats div {
+        text-align: center;
+    }
+}
