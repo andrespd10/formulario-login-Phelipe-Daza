@@ -1,16 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #e3ecfc;
+    background: #dbeaff;
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
 }
 
+footer {
+    width: 100%;          /* ocupa todo el ancho */
+    padding: 10px 0;      /* un poco de espacio arriba y abajo */
+    background-color: #caced6;
+}
+
+
+
+.foot {
+    text-align: center;   /* centra el texto */
+    font-size: 0.85rem;
+    color: #5d5f67;       /* grisito elegante */
+}
+.fondo {
+    width: 100%;
+    height: 100%;
+    background-image: url(./assets/img/imagen-estudiantes.png);
+    background-size: cover;      /* hace que ocupe todo el div */
+    background-position: center; /* centra la imagen */
+    background-repeat: no-repeat;/* evita que se repita */
+}
+
+
 /* División 50/50 en pantallas grandes */
 .container1, .container2 {
-    width: 50vw;
+    width: 50%;
     height: 100vh;
 }
 
@@ -141,16 +170,26 @@ h2 {
 /* Responsivo */
 @media (max-width: 900px) {
     body {
-        flex-direction: column;
+        flex-direction: column; /* pasa a vertical */
     }
     .container1, .container2 {
-        width: 100vw;
+        width: 100%;
         height: auto;
         min-height: 50vh;
     }
+
+    .container1 {
+        height: 250px; /* alto fijo tipo banner */
+    }
+    .fondo {
+        height: 100%;
+        width: 100%;
+    }
+
     .container2 {
         padding: 20px;
         align-items: center;
+        justify-content: flex-start;
     }
 }
 
@@ -162,4 +201,53 @@ h2 {
     .logo img {
         width: 60px;
     }
+}
+
+/* --- Overlay lila + partículas sobre la imagen de .fondo --- */
+.fondo{
+  position: relative;          /* crea el contexto para los pseudo-elementos */
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/img/imagen-estudiantes.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;            /* que nada se salga del div */
+}
+
+/* Bolitas blancas (van arriba del overlay) */
+.fondo::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(#fff 2.9px, transparent 2.9px);
+  background-size: 130px 190px;     /* más separación = menos bolitas */
+  opacity: .45;
+  animation: gcParticulas 55s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Overlay lila */
+.fondo::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(111, 66, 193, .55); /* lila translúcido */
+  z-index: 1;                           /* debajo de las bolitas */
+  pointer-events: none;
+}
+
+/* Animación de las bolitas */
+@keyframes gcParticulas{
+  from { transform: translate(0,0); }
+  to   { transform: translate(-220px,-220px); }
+}
+
+/* Ajustes responsive ya existentes: solo aseguramos que .fondo siga llenando */
+@media (max-width: 900px){
+  .container1{ height: 250px; }
+  .fondo{ width:100%; height:100%; }
 }
