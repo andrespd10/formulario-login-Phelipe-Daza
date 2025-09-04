@@ -251,3 +251,84 @@ h2 {
   .container1{ height: 250px; }
   .fondo{ width:100%; height:100%; }
 }
+
+
+
+/* Texto dentro del fondo (lado izquierdo) */
+.overlay-text {
+    position: relative;
+    z-index: 3; /* por encima del overlay y partículas */
+    color: #ffffff;
+    padding: 80px 60px;
+    max-width: 600px;
+}
+
+/* Título principal */
+.overlay-text h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Subtítulo */
+.overlay-text h4 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #d9d6f5;
+}
+
+/* Párrafo introductorio */
+.overlay-text p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #f5f3ff;
+}
+
+/* Lista de características */
+.overlay-text ul {
+    list-style: none;
+    margin-bottom: 35px;
+    padding-left: 0;
+}
+.overlay-text ul li {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Estadísticas */
+.stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+.stats div {
+    text-align: left;
+    font-size: 0.95rem;
+    color: #e5e7f0;
+}
+.stats strong {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+
+/* Ajuste responsive: centrar y reducir texto */
+@media (max-width: 900px) {
+    .overlay-text {
+        padding: 40px 20px;
+        max-width: 100%;
+        text-align: center;
+    }
+    .stats {
+        justify-content: center;
+    }
+    .stats div {
+        text-align: center;
+    }
+}
